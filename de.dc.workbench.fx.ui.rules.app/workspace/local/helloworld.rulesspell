@@ -1,0 +1,38 @@
+RulesManager{
+	rules{
+		Rule CASE1{
+		    description: "Case 1 tell us about Person"
+		    condition: EQUALS
+		    pattern: "testing"
+		}
+		
+		Rule CASE2 {
+		    description: "Hello World" 
+		    condition: EQUALS
+		    pattern: "test"
+		}
+		
+		Rule CASE3 {
+		    description: "Hello mein Freund" 
+		    condition: EQUALS
+		    pattern: "Freund"
+		}
+	}
+	
+	ruleSet{
+		RuleSet rs1{
+			rules(CASE1,CASE2)
+			output: "RuleSet 1 Value"
+		}
+		RuleSet rs2{
+			rules(CASE1,CASE2,CASE3)
+			output: "RuleSet 2 Value"
+		}
+		RuleSet rs3{
+			rules(CASE1,CASE2,CASE3)
+			output: type "de.dc.workbench.fx.ui.rules.app.Person" {
+				String name = "Hello World"
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<monaco:Monaco xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:monaco="http://www.frateranatis.org/fx/emf/monaco" language="rulesspell" fileExtension="rulesspell">
+  <proposalProvider>
+    <proposals label="Break" kind="Function" insertText="Rule ${1:name} {\n\tdescription: ${2:description} \n\tcondition: EQUALS\n\tvalue: ${3:value}\n}" insertTextRules="InsertAsSnippet"/>
+    <proposals label="Rule" description="" insertText="    Rule NAME{&#xA;        description: &quot;Hello World&quot; &#xA;        condition: EQUALS&#xA;        value: &quot;mein test&quot;&#xA;    }"/>
+  </proposalProvider>
+  <tokenProvider>
+    <tokens name="custom-URI" pattern="URI" foreground="007F00" isBold="true"/>
+    <tokens name="custom-AS" pattern="AS" foreground="55A955" isBold="true"/>
+    <tokens name="custom-OUTPUT" pattern="OUTPUT" foreground="A754A7" isBold="true"/>
+    <tokens name="custom-RULESET" pattern="RULESET" foreground="E77B18" isBold="true"/>
+    <tokens name="custom-RULESET-END" pattern="END" foreground="E77B18" isBold="true"/>
+    <tokens name="custom-WHEN" pattern="WHEN" foreground="EFA765" isBold="false"/>
+    <tokens name="custom-THEN" pattern="THEN" foreground="EFA765" isBold="true"/>
+    <tokens name="custom-RULE" pattern="RULE" foreground="1884E7" isBold="true"/>
+  </tokenProvider>
+  <lensProvider>
+    <codeLenses startLineNumber="1" startColumn="1" endLineNumber="1" endColumn="1" title="Add String Template">
+      <command id="addStringTemplateCommand" script="editorView.trigger('keyboard', 'type', {text: `text on multiple line`});"/>
+    </codeLenses>
+  </lensProvider>
+</monaco:Monaco>

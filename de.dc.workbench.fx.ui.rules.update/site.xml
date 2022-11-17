@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/de.dc.workbench.fx.ui.rules.feature_1.0.0.202211170811.jar" id="de.dc.workbench.fx.ui.rules.feature" version="1.0.0.202211170811">
+      <category name="RulesFX"/>
+   </feature>
+   <category-def name="RulesFX" label="RulesFX"/>
+</site>

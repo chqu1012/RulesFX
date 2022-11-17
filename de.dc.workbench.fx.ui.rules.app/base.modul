@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ASCII"?>
+<modul:Modul xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:modul="http://www.frateranatis.org/fx/emf/modul" id="de.dc.workbench.fx.ui.rules" name="Rules">
+  
+  <extensionPoints name="Views">
+  	<units xsi:type="modul:View" name="Properties" viewType="EXISTING" uri="de.dc.workbench.fx.ui.EmfPropertyView"/>
+    <units xsi:type="modul:View" name="Histories" viewType="EXISTING" uri="de.dc.workbench.fx.ui.EmfHistoryView"/>
+    <units xsi:type="modul:View" name="Project Explorer" viewType="EXISTING" uri="de.dc.workbench.fx.ui.views.ProjectExplorer"/>
+    <units xsi:type="modul:View" name="Logs" viewType="EXISTING" uri="de.dc.workbench.fx.ui.views.LogView"/>
+     <units xsi:type="modul:View" name="RulesOutline" viewType="EXISTING" uri="de.dc.workbench.fx.ui.rules.app.view.RulesOutline"/>
+  </extensionPoints>
+  
+  <extensionPoints name="Perspectives">
+    <units xsi:type="modul:Perspective" id="de.dc.workbench.fx.ui.rules.perspective" 
+    	name="Rules" 
+    	left="//@extensionPoints.0/@units.1 //@extensionPoints.0/@units.2" 
+    	right="//@extensionPoints.0/@units.3 //@extensionPoints.0/@units.4" 
+    	bottom="//@extensionPoints.0/@units.0" 
+    	leftRatio = "0.2353"
+		rightRatio = "0.6724"
+		topRatio = "0.3032"
+		hideEditorArea="false"
+		hideLeft="false"
+		hideBottom="false"
+		hideRight="false"
+    	associatedEditors="//@extensionPoints.2/@units.0"/>
+  </extensionPoints>
+  
+  <extensionPoints name="Editors">
+    <units xsi:type="modul:Editor" id="de.dc.workbench.fx.ui.rules.RulesEditor" name="Rules Editor" uri="de.dc.workbench.fx.ui.rules.RulesEditor" extension="rules">
+      <contextMenu>
+      	<!-- 
+      		<menuItems name="Create Column From Class" command="//@extensionPoints.4/@units.0" visibleForClassUri="de.dc.workbench.fx.ui.javafx.FXTableView"/>
+      	-->
+      </contextMenu>
+    </units>
+  </extensionPoints>
+  
+  <extensionPoints name="Commands">
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.StartFindReplaceCommand" name="Start Find Replace" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('startFindReplaceAction', 'editor.action.startFindReplaceAction');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.TransponseLettersCommand" name="Transpose Letters" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('transposeLetters', 'editor.action.transposeLetters');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.TransformToUpperCaseCommand" name="Transform to UpperCase" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('toUpperCase', 'editor.action.transformToUppercase');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.TransformToTitleCaseCommand" name="Transform to TitleCase" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('toTitleCase', 'editor.action.transformToTitlecase');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.TransformToLowerCaseCommand" name="Transform to LowerCase" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('toLowerCase', 'editor.action.transformToLowercase');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.FoldAllCommand" name="Fold All" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('foldAll', 'editor.foldAll');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.UnFoldAllCommand" name="Unfold All" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('unfoldAll', 'editor.unfoldAll');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.CopyLineCommand" name="Copy Line" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('copyLine', 'type', {text: `text on multiple line`});"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.ZoomInCommand" name="Editor Zoom In" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('zoomIn', 'editor.action.fontZoomIn');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.ZoomOutCommand" name="Editor Zoom Out" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('zoomOut', 'editor.action.fontZoomOut');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.ZoomResetCommand" name="Editor Zoom Reset" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('zoomReset', 'editor.action.fontZoomReset');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.DarkThemeCommand" name="Dark Theme" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ theme: 'vs-dark' });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.LightThemeCommand" name="Light Theme" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ theme: 'vs' });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.ShowMapCommand" name="Show Map" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ minimap: { enabled: true } });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.HideMapCommand" name="Hide Map" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ minimap: { enabled: false } });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.ShowLinenumberCommand" name="Show Linenumber" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ lineNumbers: true });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.HideLinenumberCommand" name="Hide Linenumber" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.updateOptions({ lineNumbers: false });"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.BlockCommentCommand" name="Block Comment" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('blockComment', 'editor.action.blockComment');"/>
+    <units xsi:type="modul:Command" id="de.dc.workbench.fx.ui.monaco.command.RefactorCommand" name="Refactor" uriHandler="de.dc.workbench.fx.ui.monaco.command.EditorParameterCommand" parameter="editorView.trigger('refactor', 'editor.action.refactor');"/>
+  </extensionPoints>
+  
+  <extensionPoints name="Services">
+  </extensionPoints>	
+  
+</modul:Modul>

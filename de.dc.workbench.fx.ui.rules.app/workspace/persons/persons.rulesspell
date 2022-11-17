@@ -1,0 +1,54 @@
+/************************************************************
+* URIS
+************************************************************/
+URI "de.dc.workbench.fx.ui.rules.app.Person"        AS person
+URI "de.dc.workbench.fx.ui.rules.app.PersonMapper"  AS personMapper
+
+/************************************************************
+* RULES
+************************************************************/
+RULE Size175	-> input =  "1,75m"
+RULE Size180 	-> input =  "1,80m"
+RULE ColorBlue 	-> input =  "blue"
+RULE ColorRed 	-> input =  "red"
+RULE GenderMan 	-> input =  "Man"
+RULE GenderWoman-> input =  "Woman"
+
+/************************************************************
+* OUTPUT
+************************************************************/
+OUTPUT PeterJackson (model: person, mapper: personMapper){
+	name = "Peter Jackson"
+	isSingle = "true"
+	age = "33"
+}
+
+OUTPUT JenniferGarner (model: person, mapper: personMapper){
+	name = "Jennifer Garner"
+	isSingle = "true"
+	age = "25"
+}
+
+/************************************************************
+* RULESET
+************************************************************/
+RULESET isSize180
+	WHEN 
+		Size180
+	THEN
+		JenniferGarner
+END
+
+RULESET isJenny
+	WHEN 
+		Size180 AND ColorBlue AND GenderWoman
+	THEN
+		JenniferGarner
+END
+
+RULESET isPeter
+	WHEN
+		Size175 AND ColorRed AND GenderMan
+	THEN
+		PeterJackson
+END

@@ -1,0 +1,107 @@
+@Ecore(nsURI="http://www.frateranatis.org/fx/emf/rules")
+@GenModel(
+	multipleEditorPages="false", 
+	creationIcons="false", 
+	editDirectory="/de.dc.workbench.fx.ui.rules/src-gen",
+	modelDirectory="/de.dc.workbench.fx.ui.rules/src-gen",
+	editorDirectory="", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	fileExtensions="rules",
+	modelName="Rules",
+	prefix="Rules", 
+	tableProviders="true",
+	generateExampleClass="false"
+)
+package de.dc.workbench.fx.ui.rules
+
+import java.time.format.DateTimeFormatter
+import java.time.LocalDate
+import java.time.LocalTime
+
+class RulesManager{
+	contains Rule[0..*] rules
+	contains RuleSet[0..*] ruleSet
+	contains Output[0..*] outputs
+	contains Uri[0..*] imports
+}
+
+class Uri{
+	String name
+	String uri
+}
+
+class RuleSet{
+	String name
+	refers Rule[0..*] rules
+	contains Input input
+	refers Output output
+}
+
+class When{
+	LogicalOperator operator
+	refers Rule rule1
+	refers Rule rule2
+}
+
+enum LogicalOperator{
+	AND
+	OR
+	XOR
+	XAND
+}
+
+abstract class BaseType{
+	String name
+	String value
+}
+
+class Output extends BaseType{
+	refers Uri model
+	refers Uri mapper
+	contains OutputField[0..*] fields
+}
+
+class OutputField extends BaseType{}
+
+class Input extends BaseType{}
+
+class Rule{
+	String name
+	String category
+	String description
+	Condition condition
+	String pattern
+}
+
+enum Condition{
+	EQUALS
+	EQUALS_IGNORE_CASE
+	CONTAINS
+	COTNAINS_IGNORE_CASE
+	GREATER_THAN
+	GREATER_THAN_EQUALS
+	SMALL_THAN
+	SMALL_THAN_EQUALS
+	START_WITH
+	START_IGNORE_CASE_WITH
+	END_WITH
+	END_IGNORE_CASE_WITH
+	OR
+	AND
+}
+
+type LocalDate wraps LocalDate
+create{
+	LocalDate.parse(it, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+}convert{
+	if( it !== null ) DateTimeFormatter.ofPattern("dd.MM.yyyy").format(it)
+}
+
+type LocalTime wraps LocalTime
+create{
+	LocalTime.parse(it, DateTimeFormatter.ofPattern("HH:mm"))
+}convert{
+	if( it !== null ) DateTimeFormatter.ofPattern("HH:mm").format(it)
+}

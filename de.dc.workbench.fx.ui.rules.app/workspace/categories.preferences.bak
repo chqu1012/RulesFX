@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<preferences:PreferencesStore xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:preferences="http://www.frateranatis.org/fx/emf/preferences">
+  <categories name="Languages" paneUri="de.dc.workbench.fx.ui.preferences.view.LanguagePage" useExistingPane="true">
+  </categories>
+</preferences:PreferencesStore>

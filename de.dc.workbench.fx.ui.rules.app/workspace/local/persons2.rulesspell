@@ -1,0 +1,31 @@
+RulesManager{
+	rules{
+	    Rule(category: "General", name: Size175,		pattern: "1,75m")
+		Rule(category: "General", name: Size180,		pattern: "1,80m")
+		Rule(category: "General", name: ColorBlue,		pattern: "blue")
+		Rule(category: "General", name: ColorRed, 		pattern: "red")
+		Rule(category: "General", name: GenderMan, 		pattern: "Man")
+		Rule(category: "General", name: GenderWoman,	pattern: "Woman")
+	}
+	
+	ruleSet{
+		RuleSet isJenny{
+			rules(Size180, ColorBlue, GenderWoman)
+			output: type "de.dc.workbench.fx.ui.rules.app.Person" {
+				name = "Jennifer Garner"
+				isSingle = "false"
+				age = "22"
+			}
+		}
+		RuleSet rs2{
+			rules(Size175, ColorRed, GenderMan)
+			output:  
+			type "de.dc.workbench.fx.ui.rules.app.Person" {
+				name = "Peter Jackson"
+				isSingle = "true"
+				age = "33"
+			} 
+			mapped by "de.dc.workbench.fx.ui.rules.app.PersonMapper"
+		}
+	}
+}
